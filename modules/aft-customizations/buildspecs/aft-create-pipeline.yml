@@ -3,6 +3,9 @@
 #
 version: 0.2
 
+env:
+  git-credential-helper: yes
+
 phases:
   install:
     commands:
@@ -37,8 +40,8 @@ phases:
       # Clone AFT
       - AWS_MODULE_SOURCE=$(aws ssm get-parameter --name $SSM_AWS_MODULE_SOURCE --query "Parameter.Value" --output text)
       - AWS_MODULE_GIT_REF=$(aws ssm get-parameter --name $SSM_AWS_MODULE_GIT_REF --query "Parameter.Value" --output text)
-      - git config --global credential.helper '!aws codecommit credential-helper $@'
-      - git config --global credential.UseHttpPath true
+      # - git config --global credential.helper '!aws codecommit credential-helper $@'
+      # - git config --global credential.UseHttpPath true
       - git clone --quiet -b $AWS_MODULE_GIT_REF $AWS_MODULE_SOURCE aws-aft-core-framework
 
       # Generate session profiles
