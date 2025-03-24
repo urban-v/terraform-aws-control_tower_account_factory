@@ -46,6 +46,21 @@ resource "aws_codebuild_project" "aft_global_customizations_terraform" {
     buildspec = data.local_file.aft_global_customizations_terraform.content
   }
 
+  secondary_sources {
+    type = "GITHUB"
+    source_identifier = "githubUrbanvGlobalModules"
+    location = "https://github.com/urban-v/lz-global-modules"
+
+    auth {
+      type = "CODECONNECTIONS"
+      resource = "arn:aws:codestar-connections:eu-south-1:212178105454:connection/ce264050-f8e5-4b46-83ef-f3d154a23be2"
+    }
+  }
+  secondary_source_version {
+    source_identifier = "githubUrbanvGlobalModules"
+    source_version = "testing"
+  }
+
   vpc_config {
     vpc_id             = var.aft_vpc_id
     subnets            = var.aft_vpc_private_subnets
