@@ -3,6 +3,9 @@
 #
 version: 0.2
 
+env:
+  git-credential-helper: yes
+
 phases:
   pre_build:
     commands:
@@ -32,8 +35,8 @@ phases:
           eval "$(ssh-agent -s)"
           ssh-add ~/.ssh/ssh_key
         fi
-      - git config --global credential.helper '!aws codecommit credential-helper $@'
-      - git config --global credential.UseHttpPath true
+      # - git config --global credential.helper '!aws codecommit credential-helper $@'
+      # - git config --global credential.UseHttpPath true
       - git clone -b $AWS_MODULE_GIT_REF $AWS_MODULE_SOURCE aws-aft-core-framework
       - python3 -m venv ./venv
       - source ./venv/bin/activate

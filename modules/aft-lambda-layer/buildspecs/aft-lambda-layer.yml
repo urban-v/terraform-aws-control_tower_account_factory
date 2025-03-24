@@ -3,6 +3,9 @@
 #
 version: 0.2
 
+env:
+  git-credential-helper: yes
+
 phases:
   install:
     runtime-versions:
@@ -27,8 +30,8 @@ phases:
           eval "$(ssh-agent -s)"
           ssh-add ~/.ssh/ssh_key
         fi
-      - git config --global credential.helper '!aws codecommit credential-helper $@'
-      - git config --global credential.UseHttpPath true
+      # - git config --global credential.helper '!aws codecommit credential-helper $@'
+      # - git config --global credential.UseHttpPath true
       - echo "Building aft_common from ${URL}:${AWS_MODULE_GIT_REF}"
       - git clone -b $AWS_MODULE_GIT_REF $AWS_MODULE_SOURCE aws-aft-core-framework
       - python3 -m pip install virtualenv
