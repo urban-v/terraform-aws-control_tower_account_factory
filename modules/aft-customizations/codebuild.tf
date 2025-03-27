@@ -53,7 +53,7 @@ resource "aws_codebuild_project" "aft_global_customizations_terraform" {
 
     auth {
       type = "CODECONNECTIONS"
-      resource = "arn:aws:codestar-connections:eu-south-1:212178105454:connection/ce264050-f8e5-4b46-83ef-f3d154a23be2"
+      resource = var.codestar_connection_arn
     }
   }
   secondary_source_version {
@@ -137,7 +137,7 @@ resource "aws_codebuild_project" "aft_account_customizations_terraform" {
 
     auth {
       type = "CODECONNECTIONS"
-      resource = "arn:aws:codestar-connections:eu-south-1:212178105454:connection/ce264050-f8e5-4b46-83ef-f3d154a23be2"
+      resource = var.codestar_connection_arn
     }
   }
   secondary_source_version {

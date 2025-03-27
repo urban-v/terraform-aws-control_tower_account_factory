@@ -112,3 +112,7 @@ variable "global_codebuild_timeout" {
 variable "lambda_runtime_python_version" {
   type = string
 }
+
+variable "codestar_connection_arn" {
+  type = string
+}
