@@ -387,3 +387,58 @@ variable "aft_metrics_reporting" {
     error_message = "Valid values for var: aft_metrics_reporting are (true, false)."
   }
 }
+
+### Custom
+variable "custom_secondary_sources_global_source_identifier" {
+  description = "Name of source_identifier for secondary_sources in aft-customizations"
+  type = string
+  validation {
+    condition     = length(var.custom_secondary_sources_global_source_identifier) > 0
+    error_message = "Variable var: custom_secondary_sources_global_source_identifier cannot be empty."
+  }
+}
+
+variable "custom_secondary_sources_global_location" {
+  description = "Name of location for secondary_sources in aft-customizations"
+  type = string
+  validation {
+    condition     = length(var.custom_secondary_sources_global_location) > 0
+    error_message = "Variable var: custom_secondary_sources_global_location cannot be empty."
+  }
+}
+
+variable "custom_secondary_sources_global_source_version" {
+  description = "Name of source_version for secondary_sources in aft-customizations"
+  type = string
+  validation {
+    condition     = length(var.custom_secondary_sources_global_source_version) > 0
+    error_message = "Variable var: custom_secondary_sources_global_source_version cannot be empty."
+  }
+}
+
+variable "custom_secondary_sources_account_source_identifier" {
+  description = "Name of source_identifier for secondary_sources in aft-customizations"
+  type = string
+  validation {
+    condition     = length(var.custom_secondary_sources_account_source_identifier) > 0
+    error_message = "Variable var: custom_secondary_sources_account_source_identifier cannot be empty."
+  }
+}
+
+variable "custom_secondary_sources_account_location" {
+  description = "Name of location for secondary_sources in aft-customizations"
+  type = string
+  validation {
+    condition     = length(var.custom_secondary_sources_account_location) > 0
+    error_message = "Variable var: custom_secondary_sources_account_location cannot be empty."
+  }
+}
+
+variable "custom_secondary_sources_account_source_version" {
+  description = "Name of source_version for secondary_sources in aft-customizations"
+  type = string
+  validation {
+    condition     = length(var.custom_secondary_sources_account_source_version) > 0
+    error_message = "Variable var: custom_secondary_sources_account_source_version cannot be empty."
+  }
+}
