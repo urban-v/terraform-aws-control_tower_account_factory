@@ -116,3 +116,22 @@ variable "lambda_runtime_python_version" {
 variable "codestar_connection_arn" {
   type = string
 }
+
+variable "custom_secondary_sources_global_source_identifier" {
+  type = string
+}
+variable "custom_secondary_sources_global_location" {
+  type = string
+}
+variable "custom_secondary_sources_global_source_version" {
+  type = string
+}
+variable "custom_secondary_sources_account_source_identifier" {
+  type = string
+}
+variable "custom_secondary_sources_account_location" {
+  type = string
+}
+variable "custom_secondary_sources_account_source_version" {
+  type = string
+}

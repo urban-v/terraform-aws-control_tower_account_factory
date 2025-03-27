@@ -130,7 +130,14 @@ module "aft_customizations" {
   customizations_archive_hash                       = module.packaging.customizations_archive_hash
   global_codebuild_timeout                          = var.global_codebuild_timeout
   lambda_runtime_python_version                     = local.lambda_runtime_python_version
-  codestar_connection_arn                           = module.aft_code_repositories.codestar_connection_arn
+
+  codestar_connection_arn                            = module.aft_code_repositories.codestar_connection_arn
+  custom_secondary_sources_global_source_identifier  = var.custom_secondary_sources_global_source_identifier
+  custom_secondary_sources_global_location           = var.custom_secondary_sources_global_location
+  custom_secondary_sources_global_source_version     = var.custom_secondary_sources_global_source_version
+  custom_secondary_sources_account_source_identifier = var.custom_secondary_sources_account_source_identifier
+  custom_secondary_sources_account_location          = var.custom_secondary_sources_account_location
+  custom_secondary_sources_account_source_version    = var.custom_secondary_sources_account_source_version
 }
 
 module "aft_feature_options" {

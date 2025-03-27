@@ -48,8 +48,8 @@ resource "aws_codebuild_project" "aft_global_customizations_terraform" {
 
   secondary_sources {
     type = "GITHUB"
-    source_identifier = "githubUrbanvGlobalModules"
-    location = "https://github.com/urban-v/lz-global-modules"
+    source_identifier = var.custom_secondary_sources_global_source_identifier
+    location = var.custom_secondary_sources_global_location
 
     auth {
       type = "CODECONNECTIONS"
@@ -57,8 +57,8 @@ resource "aws_codebuild_project" "aft_global_customizations_terraform" {
     }
   }
   secondary_source_version {
-    source_identifier = "githubUrbanvGlobalModules"
-    source_version = "testing"
+    source_identifier = var.custom_secondary_sources_global_source_identifier
+    source_version = var.custom_secondary_sources_global_source_version
   }
 
   vpc_config {
@@ -132,17 +132,16 @@ resource "aws_codebuild_project" "aft_account_customizations_terraform" {
 
   secondary_sources {
     type = "GITHUB"
-    source_identifier = "githubUrbanvAccountModules"
-    location = "https://github.com/urban-v/lz-account-modules"
-
+    source_identifier = var.custom_secondary_sources_account_source_identifier
+    location = var.custom_secondary_sources_account_location
     auth {
       type = "CODECONNECTIONS"
       resource = var.codestar_connection_arn
     }
   }
   secondary_source_version {
-    source_identifier = "githubUrbanvAccountModules"
-    source_version = "testing"
+    source_identifier = var.custom_secondary_sources_account_source_identifier
+    source_version = var.custom_secondary_sources_account_source_version
   }
 
   vpc_config {
