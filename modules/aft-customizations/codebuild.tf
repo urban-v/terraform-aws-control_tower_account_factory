@@ -141,7 +141,7 @@ resource "aws_codebuild_project" "aft_account_customizations_terraform" {
     }
   }
   secondary_source_version {
-    source_identifier = "githubUrbanvGlobalModules"
+    source_identifier = "githubUrbanvAccountModules"
     source_version = "testing"
   }
 
